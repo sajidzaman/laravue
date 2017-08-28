@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'SB') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Personal Blog Application') }}
                     </a>
                 </div>
 
@@ -43,8 +43,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <router-link to="/" tag="li"><a>About me</a></router-link>
+                            <router-link to="/blog" tag="li"><a>Blog</a></router-link>
+                            <router-link to="/projects" tag="li"><a>Projects</a></router-link>
+                            <router-link to="/post/sajid" tag="li"><a>Sajid</a></router-link>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -72,6 +74,13 @@
         </nav>
 
         @yield('content')
+        <footer>
+            <div class="container">
+                <div class="col-md-12 text-center">
+                    Copyright @2017, Sajid Badi-uz-zaman
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->

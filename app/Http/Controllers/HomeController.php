@@ -31,6 +31,15 @@ class HomeController extends Controller
         $title ='Vue App in Laravel';
         return view('welcome')->with(compact('title'));
     }
+
+    public function intro() {
+        $intro= [
+            'title' => 'I am Sajid Badi-uz-zaman. An Experienced Web Developer and trainer with Expertise in PHP and Javascript applications.',
+            'description' => 'This is the description of What i am going to write about myself in coming days'
+        ];
+
+        return $intro;
+    }
     public function users() {
         return User::all();
     }

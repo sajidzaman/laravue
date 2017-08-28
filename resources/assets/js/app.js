@@ -17,11 +17,16 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 
 const example = Vue.component('example', require('./components/Example.vue'));
-const user = Vue.component('user', require('./components/UserComponent.vue'));
+const blog = Vue.component('blog', require('./components/BlogComponent.vue'));
+const post = Vue.component('post', require('./components/SingleBlogComponent.vue'));
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
-    routes: [{ path: '/', component: example }, { path: '/user', component: user }]
+    routes: [
+        { path: '/', component: example },
+        { path: '/blog', component: blog },
+        { path: '/post/:slug', component: post }
+        ]
 });
 const app = new Vue({
     el: '#app',
