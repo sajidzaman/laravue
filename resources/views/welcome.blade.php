@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-<router-view data="{{$title}}"></router-view>
+<router-view></router-view>
 @endsection

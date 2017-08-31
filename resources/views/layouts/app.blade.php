@@ -11,11 +11,13 @@
     <title>{{ config('app.name', 'SB') }}</title>
 
     <!-- Styles -->
+    <link href="{{ asset('css/vue-animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -85,5 +87,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+<script>
+
+</script>
 </body>
 </html>

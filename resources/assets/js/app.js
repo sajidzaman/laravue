@@ -14,21 +14,22 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+require('particles.js');
 import VueRouter from 'vue-router';
-
+const mainapp = Vue.component('mainapp', require('./App.vue'));
 const example = Vue.component('example', require('./components/Example.vue'));
 const blog = Vue.component('blog', require('./components/BlogComponent.vue'));
-const post = Vue.component('post', require('./components/SingleBlogComponent.vue'));
+const post = Vue.component('post', require('./components/Blog/Post.vue'));
 Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/', component: example },
+        { path: '/', component: mainapp },
         { path: '/blog', component: blog },
-        { path: '/post/:slug', component: post }
-        ]
+        { path: '/post/:slug', name: 'post', component: post },
+    ]
 });
 const app = new Vue({
     el: '#app',
-    router
+    router: router,
 });

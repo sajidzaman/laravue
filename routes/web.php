@@ -12,17 +12,15 @@
 */
 
 //Route::get('/', 'HomeController@index');
-Route::get('/', 'HomeController@welcome');
+//Route::get('/', 'HomeController@welcome');
+
+
+Route::any('{all}', function () {
+    return view('welcome');
+})
+    ->where(['all' => '.*']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/redirect', function () {
-    $query = http_build_query([
-        'client_id' => '2',
-        'response_type' => 'token',
-        'scope' => '',
-    ]);
-
-    return redirect('http://laravue.local/oauth/authorize?'.$query);
-});
