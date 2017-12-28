@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Redis;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['welcome', 'users']);
+        $this->middleware('auth')->except(['welcome', 'users','index']);
     }
 
     /**
@@ -24,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $visits = Redis::incr('visits');
+        return $visits;
         return view('home');
     }
 

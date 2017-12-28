@@ -14,7 +14,7 @@
 //Route::get('/', 'HomeController@index');
 //Route::get('/', 'HomeController@welcome');
 
-
+Route::get('/home', 'HomeController@index')->name('home');
 Route::any('{all}', function () {
     return view('welcome');
 })
